@@ -1,0 +1,187 @@
+@font-face {
+  font-family: 'Sonya'; /* This is the font family name you will use */
+  src: url('fonts/sonya\ cute.ttf') format('truetype');
+  /* Additional font properties if needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Moonrising'; /* This is the font family name you will use */
+  src: url('fonts/Moonrising.ttf') format('truetype');
+  /* Additional font properties if needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: white;
+  background-color: #B785A9;
+  font-size: 28px;
+}
+
+h1 {
+  font-size: 110px;
+  margin-bottom: 1rem;
+}
+
+
+#title{
+  font-family: 'Sonya', sans-serif;
+  padding-top: 40px;
+  color:#B785A9;
+  text-shadow: 2px 2px 0 black;
+}
+
+.logo {
+  position: fixed;
+  top: 20px; /* Adjust the value as needed to control the distance from the top */
+  left: 20px; /* Adjust the value as needed to control the distance from the left */
+  width: 100px; /* Adjust the width of the logo as needed */
+  height: auto; /* Adjust the height if the image doesn't have a natural size */
+  z-index: 1000; /* Set a high z-index to make sure the logo appears above other content */
+}
+
+
+.full-screen-section {
+  height: 100vh;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  font-family: 'Moonrising', sans-serif;
+}
+
+.block-paragraph {
+  display: block;
+  /* Additional styles if desired */
+  color:white
+}
+
+.top-section .left,
+.top-section .right {
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 1rem;
+  padding-left: 3rem;
+}
+
+.stars{
+  color:#fffd8d
+}
+
+.star-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.line {
+  position: absolute;
+  left: 50%;
+  bottom: 0; /* Start the line at the bottom of the star */
+  width: 1px;
+  background-color: white; /* Customize the line color */
+}
+
+
+.top-section {
+  display: flex;
+  text-align: start;
+  padding: 0;
+}
+
+.top-section .left {
+  background-color: rgb(158, 99, 129, var(--background-opacity));
+}
+
+.top-section .right {
+  background: linear-gradient(
+    210.65deg,
+    rgb(183, 133, 169, var(--background-opacity)) 0%,
+    rgb(183, 133, 169, var(--background-opacity)) 100%
+  );
+}
+
+.imgs > .top-section-img {
+  /* (oldVal - oldMin) * newRange / oldRange + newMin */
+  --value: min(var(--scroll), 30) * 50 / 30;
+  width: calc(50vw + 1vw * var(--value));
+  transform: translateY(calc(50% - 1% * var(--value)));
+}
+
+@media (width <= 1000px) {
+  .top-section .right {
+    display: none;
+  }
+
+  .top-section .left {
+    text-align: center;
+  }
+
+  body {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 72px;
+  }
+
+  .imgs > .top-section-img {
+    width: 100vw;
+  }
+}
+
+:root {
+  --scroll: 0;
+}
+
+.top-section {
+  position: sticky;
+  top: 0;
+  /* (oldVal - oldMin) * newRange / oldRange + newMin */
+  translate: 0 calc(-1% * (max(var(--scroll), 25) - 25) * 100 / 75);
+  --background-opacity: calc(100% - 1% * min(var(--scroll), 30) * 100 / 30);
+}
+
+.first-main-section {
+  padding-top: 10vh;
+}
+
+.imgs > * {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  z-index: 10;
+  translate: 0 100%;
+  transition: translate 250ms ease-in-out;
+}
+
+img{
+  max-width: 1151px;
+  max-height: 3781px;
+}
+
+.imgs > .show {
+  translate: 0 0;
+}
+
+[data-img-to-show] {
+  position: absolute;
+  top: 20%;
+}
+
+
+a:link {
+  color: #EA8DEC; /* Set the color for the link when not clicked */
+  text-decoration: none; /* Remove underline for the link */
+}
+
+a:visited {
+  color: #EA8DEC; /* Set the color for the link when clicked */
+}
