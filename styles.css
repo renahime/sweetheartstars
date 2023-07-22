@@ -165,6 +165,7 @@ h1 {
 img{
   max-width: 1151px;
   max-height: 3781px;
+  display:none;
 }
 
 .imgs > .show {
