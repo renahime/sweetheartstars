@@ -43,7 +43,7 @@ h1 {
 .logo {
   position: fixed;
   top: 20px; /* Adjust the value as needed to control the distance from the top */
-  left: 20px; /* Adjust the value as needed to control the distance from the left */
+  left: 40px; /* Adjust the value as needed to control the distance from the left */
   width: 100px; /* Adjust the width of the logo as needed */
   height: auto; /* Adjust the height if the image doesn't have a natural size */
   z-index: 1000; /* Set a high z-index to make sure the logo appears above other content */
@@ -160,12 +160,12 @@ h1 {
   z-index: 10;
   translate: 0 100%;
   transition: translate 250ms ease-in-out;
+  display:none
 }
 
 img{
   max-width: 1151px;
   max-height: 3781px;
-  display:none;
 }
 
 .imgs > .show {
