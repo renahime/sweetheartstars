@@ -14,6 +14,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'billo'; /* This is the font family name you will use */
+  src: url('fonts/billo.TTF') format('truetype');
+  /* Additional font properties if needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 *,
 *::before,
 *::after {
@@ -36,7 +45,7 @@ h1 {
 #title{
   font-family: 'Sonya', sans-serif;
   padding-top: 40px;
-  color:#B785A9;
+  color:#FBD8FF;
   text-shadow: 2px 2px 0 black;
 }
 
@@ -50,13 +59,7 @@ h1 {
 }
 
 
-.full-screen-section {
-  height: 100vh;
-  text-align: center;
-  padding: 1rem;
-  position: relative;
-  font-family: 'Moonrising', sans-serif;
-}
+
 
 .block-paragraph {
   display: block;
@@ -72,8 +75,9 @@ h1 {
   padding-left: 3rem;
 }
 
-.stars{
-  color:#fffd8d
+.stars {
+  color: #fffd8d;
+  position: relative;
 }
 
 .star-wrapper {
@@ -84,10 +88,109 @@ h1 {
 .line {
   position: absolute;
   left: 50%;
-  bottom: 0; /* Start the line at the bottom of the star */
+  bottom: 0;
+  height:100%;
   width: 1px;
-  background-color: white; /* Customize the line color */
+  background-color: white;
+  z-index: -1; /* Set a negative z-index to move the line behind the star */
 }
+
+
+.layout-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* Adjust column widths as needed */
+  gap: 20px; /* Adjust gap between sections as needed */
+}
+
+
+
+.full-screen-section {
+  height: 100vh;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  font-family: 'Moonrising', sans-serif;
+}
+.first-main-section {
+  padding-top: 10vh;
+}
+
+.side-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  transform: translateY(-300px);
+}
+
+.left-box,
+.right-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #4F2E48;
+  border-radius: 20px;
+  z-index: 2;
+  width: 300px; /* Set a fixed width */
+  height: 350; /* Set a fixed height */
+  /* Add any other common styles for the boxes as needed */
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #007bff;
+  background-size: cover;
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat;
+}
+
+.side-line-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.side-line-left,
+.side-line-right {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  background-color: black;
+  z-index: 1;
+}
+
+
+
+/* Update the position of the lines */
+.side-line-left {
+  top: 50%; /* Position the left line vertically in the middle of the container */
+  transform: translateY(-1px); /* Move the line 1px above the middle position */
+  left:-20px
+}
+
+.side-line-right {
+  top: 50%; /* Position the right line vertically in the middle of the container */
+  transform: translateY(1px); /* Move the line 1px below the middle position */
+}
+
+/* Align the right line to the right side of the container */
+.side-line-right {
+  right: 0;
+  z-index: 1;
+}
+
+
+
+
 
 
 .top-section {
@@ -108,12 +211,7 @@ h1 {
   );
 }
 
-.imgs > .top-section-img {
-  /* (oldVal - oldMin) * newRange / oldRange + newMin */
-  --value: min(var(--scroll), 30) * 50 / 30;
-  width: calc(50vw + 1vw * var(--value));
-  transform: translateY(calc(50% - 1% * var(--value)));
-}
+
 
 @media (width <= 1000px) {
   .top-section .right {
@@ -149,9 +247,6 @@ h1 {
   --background-opacity: calc(100% - 1% * min(var(--scroll), 30) * 100 / 30);
 }
 
-.first-main-section {
-  padding-top: 10vh;
-}
 
 .imgs > * {
   position: fixed;
@@ -185,4 +280,133 @@ a:link {
 
 a:visited {
   color: #EA8DEC; /* Set the color for the link when clicked */
+}
+
+.members-container{
+  border: 10px solid white;
+  border-radius: 15px; /* Adjust the border-radius for the softness */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a semi-transparent box-shadow for softness */
+  padding-left:25px;
+  padding-right:25px;
+  padding-top:50px;
+  padding-bottom:50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Create 4 columns with equal width */
+  gap: 20px; /* Adjust the gap between member boxes to your preference */
+  justify-items: center; /* Center the items horizontally */
+}
+
+.body-container{
+  padding-left:75px;
+  padding-right:75px;
+  padding-top:50px
+}
+
+.member-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #4F2E48;
+  border-radius: 20px;
+  z-index: 2;
+  width: 400px; /* Set a fixed width */
+  height: 350; /* Set a fixed height */
+  /* Add any other common styles for the boxes as needed */
+  text-align: center;
+}
+
+.full-member-name{
+  font-family: 'billo', sans-serif;
+  padding-top: 40px;
+  color:#FBD8FF;
+  text-shadow: 2px 2px 0 black;
+  font-size: 200%;
+}
+
+.full-member-info{
+  font-family: 'Moonrising', sans-serif;
+}
+
+.members-title{
+  text-align: center;
+}
+
+#member-star{
+  text-align: center;
+  color:yellow;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin:auto;
+}
+
+.navigation-arrows {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 50px;
+}
+
+.navigation-arrows button {
+  background-color: #4F2E48;
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 0 10px;
+  border-radius: 8px;
+}
+
+.navigation-arrows button:focus {
+  outline: none;
+}
+
+.full-member-name:hover {
+  color: hotpink;
+  cursor: pointer;
+
+}
+
+.single-member-box{
+  position: relative;
+  flex-direction: row;
+  padding: 20px;
+  background-color: #4F2E48;
+  border-radius: 20px;
+  z-index: 2;
+  width: 100%; /* Set a fixed width */
+  height: 100%; /* Set a fixed height */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap:20px
+}
+
+.single-member-photo {
+  width: 500px; /* Set the width of the photo container */
+  height: 800px; /* Set the height of the photo container */
+  background-color: #ffffff; /* Set the background color to white */
+  border-radius: 5px; /* Make it round by setting a border-radius */
+  background-size: cover; /* Scale the background image to cover the container */
+  background-position: center; /* Center the background image within the container */
+  border: 5px solid white; /* Add a white border with a width of 10px */
+}
+
+.single-member-contents {
+  /* Other styles for .single-member-contents */
+  flex: 1;
+  text-align: left;
+  padding-left: 20px; /* Add some spacing between photo and text */
+}
+
+.middle-img{
+  width:900px;
+  height: 400px;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
+  border-radius: 10px;
 }

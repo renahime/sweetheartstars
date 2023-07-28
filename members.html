@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>⭐Sweetheart Stars⭐</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://kit.fontawesome.com/11fa594b1c.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <script>
+    function redirectToSingleMemberPage(memberName) {
+      // Construct the URL for the single_member page with the selected member's name
+      const url = `single_member.html?name=${encodeURIComponent(memberName)}`;
+      // Navigate to the single_member page
+      window.location.href = url;
+    }
+    </script>
+    <div class="title">
+      <h1 class="members-title" id="title">Members</h1>
+    </div>
+    <div class="body-container">
+      <div class="navigation-arrows">
+        <button id="prev-arrow">&lt;</button>
+        <button id="next-arrow">&gt;</button>
+      </div>
+      <div class="members-container">
+        <!-- The member boxes will be dynamically added here -->
+      </div>
+      <h1></h1>
+    </div>
+    <script type="module" src="members_script.js"></script>
+  </body>
+  </html>
