@@ -401,12 +401,11 @@ a:visited {
   padding-left: 20px; /* Add some spacing between photo and text */
 }
 
-.middle-img{
-  width:900px;
+.middle-img {
+  width: 900px;
   height: 400px;
-  background-color: white;
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   transition: background-image 0.5s ease-in-out;
-  border-radius: 10px;
 }

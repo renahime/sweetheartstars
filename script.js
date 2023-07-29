@@ -67,7 +67,7 @@ function drawSideLines() {
     leftLine.classList.add('side-line', 'side-line-left');
 
     // Calculate the left line length (from the left side of the screen to the left side of the box container)
-    const leftLineLength = leftBoxRect.left + 20;
+    const leftLineLength = leftBoxRect.left + 8;
 
     leftLine.style.width = `${leftLineLength}px`;
     leftLine.style.top = `${(leftBoxRect.top + leftBoxRect.height / 2) - window.innerHeight}px`; // Position the line vertically in the middle of the box container
@@ -82,7 +82,7 @@ function drawSideLines() {
     rightLine.classList.add('side-line', 'side-line-right');
 
     // Calculate the right line length (from the right side of the screen to the right side of the box container)
-    const rightLineLength = window.innerWidth - rightBoxRect.right - 15;
+    const rightLineLength = window.innerWidth - rightBoxRect.right;
 
     rightLine.style.width = `${rightLineLength}px`;
     rightLine.style.right = 0; // Align the right line to the right side of the screen
